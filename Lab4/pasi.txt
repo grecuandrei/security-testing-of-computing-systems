@@ -1,0 +1,183 @@
+1.
+sudo useradd -m bugs
+sudo usermod --shell /bin/bash bugs
+sudo usermod -c "Bugs Bunny" bugs
+sudo passwd bugs
+
+sudo useradd -m daffy
+sudo usermod --shell /bin/bash daffy
+sudo usermod -c "Daffy Duck" daffy
+sudo passwd daffy
+
+sudo useradd -m tweety
+sudo usermod --shell /bin/bash tweety
+sudo usermod -c "Tweety" tweety
+sudo passwd tweety
+
+sudo groupadd friends
+sudo usermod -g friends daffy
+sudo usermod -g friends tweety
+
+2.
+su daffy
+touch test.c
+chmod -R 660 test.c
+chmod -R 606 test.c
+
+3.
+mkdir daffysfolder
+chmod -R 7755 daffysfolder/ -> apare un s in loc de x pt owner si grup si un t in loc de x pt restu
+chmod -R 7644 daffysfolder/ -> apare un S in loc de x pt owner si grup si un T in loc de x pt restu
+chmod -R u-s daffysfolder/
+chmod -R g-s daffysfolder/
+chmod -R o-t daffysfolder/
+chmod -R 755 daffysfolder/
+sudo chown -R bugs:bugs daffysfolder/ (trb de pe student)
+mkdir tweety_likes_to_share (in tweety)
+chmod -R 755 tweety_likes_to_share/
+chmod -R o+t tweety_likes_to_share/
+touch sensitivedata.txt
+chmod 600 sensitivedata.txt
+su bugs
+vi sensitivedata.txt
+su student
+whereis vi
+sudo chmod u+s /usr/bin/vi
+su bugs
+vi sensitivedata.txt
+
+1.
+sudo useradd -m alice
+sudo usermod --shell /bin/bash alice
+sudo passwd alice
+
+sudo useradd -m bob
+sudo usermod --shell /bin/bash bob
+sudo passwd bob
+
+sudo groupadd nice-people
+sudo usermod -g nice-people alice
+sudo usermod -g nice-people bob
+
+2.
+mkdir important-files
+ls -al
+getfacl important-files/
+
+3.
+su alice
+cd important-files/
+mkdir alice-files
+su student
+cd ..
+setfacl -m u:alice:7 important-files/
+su alice
+cd important-files/
+mkdir alice_files
+cd ..
+getfacl important-files/
+ls -al -> Apare un + la permisiuni
+cd important-files/
+mkdir alice_files
+Da, a mers
+
+4.
+cd alice_files
+su bob
+touch bob.txt
+su alice
+setfacl -m g:nice-people:7 alice_files/
+su bob
+touch bob.txt
+
+5.
+su alice
+setfacl -d -m group:nice-people:rwx alice_files/
+touch alice2.txt
+su bob
+vim alice2.txt
+
+6.
+su alice
+setfacl -x g:nice-people alice_files/
+Nu
+setfacl -b alice_files/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

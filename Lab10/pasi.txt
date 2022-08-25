@@ -1,0 +1,38 @@
+1.
+sudo adduser red
+sudo adduser blue
+sudo adduser green
+sudo cp -r .ssh/ /home/red
+sudo chown red /home/red/.ssh/authorized_keys
+sudo cp -r .ssh/ /home/blue
+sudo chown blue /home/blue/.ssh/authorized_keys
+sudo cp -r .ssh/ /home/green
+sudo chown green /home/green/.ssh/authorized_keys
+su red
+gpg --full-generate-key
+1 enter enter y reddd red@cs.pub.ro
+gpg --armor --export student
+su green
+gpg --import 
+gpg --list-keys
+echo "secret" > secret.txt
+gpg -e -r student secret.txt
+exit
+de pe student:
+sudo cp /home/green/secret.txt.gpg /home/red/
+su red
+cd
+gpg -d secret.txt.gpg
+
+
+
+
+2.
+sudo systemctl status tor
+netstat -ano | grep LISTEN | grep 9050
+ip a s eth0
+dig TXT +tcp +short o-o.myaddr.l.google.com @ns1.google.com | awk -F'"' '{ print $2}'
+curl --socks5 localhost:9050 --socks5-hostname localhost:9050 -s https://check.torproject.org/ | cat | grep -m 1 Congratulations | xargs
+ssh -i .shh/openstack.key.pub -o ProxyCommand="ssh andrei_george.grecu@fep.grid.pub.ro -W %h:%p" -L 9050:localhost:9050 student@10.9.2.230
+Firefox -> Options -> General -> Network Settings -> manual proxy config bifat
+Socks Host -> 10.9.2.230:9150

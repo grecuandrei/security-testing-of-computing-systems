@@ -1,0 +1,46 @@
+0)ISC{sending_passwords_in_cleartext_is_not_smart}
+1)ISC{file_is_our_friend}
+2)ISC{we_all_love_grep}
+3)ISC{file_is_your_friend}
+4)ISC{spectogram_for_the_win}
+5)ISC{fileception_is_real}
+6)ISC{hidden_in_the_dark}
+7)ISC{what_were_you_waiting_for}
+8)ISC{keycap}
+
+
+
+
+
+
+
+
+
+
+
+----------00. Capture 1----------------------
+filter dupa ftp
+----------01.Unknown File Type----------------
+zcat 01-File --> ISC{file_is_our_friend}  
+----------02. Hidden Flag--------------------
+xxd pe imagine +  grep(sau fara ca e la final)
+
+---------03. Corrupted File-----------------
+repair online
+
+--------04. Audio Visualization--------------
+click dreapta + spectogram
+--------05. Hidden File---------------------
+
+binwalk -e -> am vazut ca sunt 2 fisiere
+binwalk -e --dd 05-Idea.jpg -> extrag arhiva si dezarhivam
+
+----------06. Censored-------------
+deschis cu adobe acrobat si miscat dreptunghi
+
+-----07. Waiting for eternity-------
+split in frames si scan OR
+
+---08--
+tshark -r 08-Capture\ 2.pcap -T fields -e usb.capdata > flag6.txt 
++ script python

@@ -1,0 +1,25 @@
+[5p] Task B: Network scan
+    nmap -v 10.9.0.0/24  
+    sudo arp-scan 10.9.0.0/24 
+
+    arp-scan scaneaza device-urile cu care masina mea comunica
+
+[10p]Task C: TCP port scan
+nmap -sS -v 10.9.0.0/24   ----> SYN Scan
+nmap -sT -v 10.9.0.0/24   -----> connect SCAN
+nmap -sX -v 10.9.0.0/24   -----> Xmas SCAN
+
+[5p] Task E: OS / Version scans
+sudo nmap -O -v 10.9.4.50  
+
+[10p] Task B: Server Firewall
+iptables -A INPUT -p tcp --dport 80 -j REJECT
+iptables -A INPUT -p tcp --dport http -s 10.10.10.10 -j REJECT
+
+[10p] Task C: Workstation Firewall
+iptables -A OUTPUT -p tcp,udp --sport 53,22,123,80,443 -j ACCEPT 
+iptables -A OUTPUT -p icmp -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+
+[10p] Task D: DNS blocking
+iptables -I INPUT -p udp –dport 53 -m string –hex-string "|03|www|08|facebook|03|com|" –algo bm -j DROP
